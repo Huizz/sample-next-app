@@ -1,0 +1,41 @@
+{
+    "name": "cra-tsx",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next",
+        "build": "next build ./src/app -o ./build/dev",
+        "start": "npm run build && npm run export && cd ./build/app && serve -p 3006",
+        "export": "next export ./src/app -o ./build/app"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "next": "^7.0.2",
+        "next-redux-wrapper": "^2.0.0",
+        "react": "^16.6.0",
+        "react-dom": "^16.6.0",
+        "react-helmet": "^5.2.0",
+        "react-intl": "^2.7.2",
+        "react-redux": "^5.0.7",
+        "react-router-dom": "^4.3.1",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0",
+        "styled-components": "^4.0.3"
+    },
+    "devDependencies": {
+        "@types/enzyme": "^3.1.14",
+        "@types/jest": "^23.3.9",
+        "@types/next": "^7.0.3",
+        "@types/next-redux-wrapper": "^2.0.0",
+        "@types/react": "^16.4.18",
+        "@types/react-dom": "^16.0.9",
+        "@types/react-helmet": "^5.0.7",
+        "@types/react-intl": "^2.3.11",
+        "@types/react-redux": "^6.0.9",
+        "@types/react-router-dom": "^4.3.1",
+        "@types/styled-components": "^4.0.3",
+        "@zeit/next-typescript": "^1.1.1",
+        "babel-plugin-module-resolver": "^3.1.1",
+        "enzyme": "^3.7.0"
+    }
+}
