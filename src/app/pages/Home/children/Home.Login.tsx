@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Button from 'app/components/Button';
+import CustomInput from 'app/components/CustomInput';
 
 export interface IHomeLoginProps {
     login: (username: string, password: string) => void
@@ -20,6 +21,14 @@ class Login extends React.Component<IHomeLoginProps, IState> {
 
     public render = () => (
         <>
+            <CustomInput
+                inputType="text"
+                inputLabel="username"
+                inputValue={this.state.username}
+                inputName="username"
+                inputClass="loginForm__username"
+                onChange={this.onCustomInputChange}
+            />
             <input
                 type="text"
                 name="username"
@@ -37,6 +46,12 @@ class Login extends React.Component<IHomeLoginProps, IState> {
             <Button name="Login" size="large" onClick={(this.onClick)} />
         </>
     );
+
+    private onCustomInputChange = (inputName: string, inputValue: string | number) => {
+        const state = { ...this.state };
+        state[inputName] = inputValue;
+        this.setState(state);
+    };
 
     private onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const state = { ...this.state };
