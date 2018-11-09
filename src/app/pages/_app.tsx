@@ -1,14 +1,28 @@
 import App, { Container } from 'next/app'
 import * as React from 'react';
 import { Provider } from 'react-redux'
-import withRedux from 'next-redux-wrapper'
-import { initStore } from 'app/App';
+import { applyMiddleware, compose, createStore, Store } from 'redux'; 
+import reduxThunk from 'redux-thunk';
+import withRedux from 'next-redux-wrapper';
+
+// import { initStore } from 'app/App';
 import LanguageProvider from 'app/utils/translation/LanguageProvider';
+import { IState, state } from 'app/services/reducer';
 
 interface IAppProps {
   Component: any,
   pageProps: any,
   store: any,
+}
+
+const initStore = (initialState:any):Store<IState> => {
+  return createStore(
+    state,
+    initialState,
+    compose(
+        applyMiddleware(reduxThunk)
+    )
+  )
 }
 
 // NOTE: this file is used instead of App.tsx
