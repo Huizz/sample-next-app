@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next",
+        "dev": "next ./src/app",
         "build": "next build ./src/app -o ./build/dev",
         "start": "npm run build && npm run export && cd ./build/app && serve -p 3006",
         "export": "next export ./src/app -o ./build/app"
